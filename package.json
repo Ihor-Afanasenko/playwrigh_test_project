@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "test": "npx playwright test --headed",
+    "format": "prettier-eslint --write \"tests/*.ts\" \"pages/*.ts\" \"base/*.ts\"" 
+  },
+  "dependencies": {
+    "@playwright/test": "^1.29.2",
+    "allure-playwright": "^2.0.0-beta.23",
+    "@faker-js/faker": "^7.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "eslint": "^8.32.0",
+    "prettier": "^2.8.3",
+    "prettier-eslint-cli": "^7.1.0"
+  }
+}
