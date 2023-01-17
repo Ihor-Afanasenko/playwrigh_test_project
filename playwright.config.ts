@@ -9,8 +9,8 @@ const config: PlaywrightTestConfig = {
   },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 3 : 0,
-  workers: process.env.CI ? 1 : 10,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 5 : 3,
   reporter: process.env.CI ? 'list' : [
     ['list'],
     ['html'],

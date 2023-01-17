@@ -37,22 +37,4 @@ export class APIAction {
     );
     expect(post_res.ok()).toBeTruthy();
   }
-
-  async loginTestUserViaAPI(user: User): Promise<void> {
-    const req = await request.newContext();
-    const getReg = await req.get(`${this.baseURL}${this.endpointToLogin}`);
-    const formKey = this.getFormKey((await getReg.body()).toString());
-    const post_res = await req.post(
-      `${this.baseURL}${this.endpointToLogin}Post`,
-      {
-        form: {
-          form_key: formKey,
-          "login[username]": user.email,
-          "login[password]": user.password,
-        },
-      }
-    );
-    console.log(post_res.ok());
-    expect(post_res.ok()).toBeTruthy();
-  }
 }
