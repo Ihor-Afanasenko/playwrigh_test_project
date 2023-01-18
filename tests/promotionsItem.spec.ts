@@ -2,10 +2,10 @@ import { expect, test } from "../base/pomFixture";
 
 test.describe("Promotions item", () => {
   test("User should add item to preview and cart", async ({
+    page,
     pantsAllPage,
     previewItemPage,
     cartPage,
-    page,
   }) => {
     await pantsAllPage.open(page);
 

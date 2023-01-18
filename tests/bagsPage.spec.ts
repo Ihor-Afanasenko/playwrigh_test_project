@@ -4,9 +4,9 @@ test.describe("Bags page", () => {
   test("User should see frame on hover over to item, sort by position/product name/price, sorted accordingly", async ({
     user,
     apiAction,
-    bagsPage,
-    loginPage,
     page,
+    loginPage,
+    bagsPage,
   }) => {
     await apiAction.createTestUserViaAPI(user);
 

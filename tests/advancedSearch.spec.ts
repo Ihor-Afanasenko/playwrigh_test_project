@@ -2,9 +2,9 @@ import { expect, test } from "../base/pomFixture";
 
 test.describe("Advanced search", () => {
   test("User should submit the form with any random data, verify there is a page with no results found ", async ({
-    advancedSearchPage,
-    product,
     page,
+    product,
+    advancedSearchPage,
   }) => {
     await advancedSearchPage.open(page);
 

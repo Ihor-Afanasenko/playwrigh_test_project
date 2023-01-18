@@ -14,8 +14,8 @@ export class User {
     this.email = `acc.pw.testing+${faker.random
       .numeric(10)
       .toString()}@gmail.com`;
-    this.password = faker.internet.password();
-    this.newPassword = faker.internet.password();
+    this.password = faker.internet.password(20);
+    this.newPassword = faker.internet.password(20);
     this.orderId = faker.random.numeric(20);
   }
 }

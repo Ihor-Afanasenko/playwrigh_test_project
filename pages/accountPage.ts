@@ -51,20 +51,7 @@ export class AccountPage extends BasePage {
     await this.changePasswordLink.click();
   }
 
-  async fillCurrentPasswordField(currentPassword: string): Promise<void> {
-    await this.currentPassword.fill(currentPassword);
-  }
-
-  async fillNewPasswordField(newPassword: string) {
-    await this.newPasswordField.fill(newPassword);
-    await this.passwordMeter.waitFor({ state: "visible" });
-  }
-
-  async fillConfirmationNewPasswordField(newPassword: string) {
-    await this.passwordConfirmation.type(newPassword);
-  }
-
-  async clickSaveButton() {
+  async clickSaveButton(): Promise<void> {
     await this.passwordMeter.waitFor({ state: "visible" });
     await this.saveButton.click();
   }
@@ -74,9 +61,9 @@ export class AccountPage extends BasePage {
     currentPassword: string
   ): Promise<void> {
     await this.clickOnChangePasswordLink();
-    await this.fillCurrentPasswordField(currentPassword);
-    await this.fillNewPasswordField(newPassword);
-    await this.fillConfirmationNewPasswordField(newPassword);
+    await this.fillField(this.currentPassword, currentPassword);
+    await this.fillField(this.newPasswordField, newPassword);
+    await this.fillField(this.passwordConfirmation, newPassword);
     await this.clickSaveButton();
   }
 

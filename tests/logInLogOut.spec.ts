@@ -1,13 +1,13 @@
 import { expect, test } from "../base/pomFixture";
 
 test.describe("Login and Logout", () => {
-  test("User should login", async ({
+  test("User should login and logout", async ({
     user,
     apiAction,
+    page,
     homePage,
     loginPage,
     accountPage,
-    page,
   }) => {
     await apiAction.createTestUserViaAPI(user);
 

@@ -1,4 +1,4 @@
-import { Page } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 import { SingletonPage } from "./singeltonPage";
 
 export class BasePage extends SingletonPage {
@@ -10,6 +10,14 @@ export class BasePage extends SingletonPage {
     this.pageTitle = ".base";
     this.message = ".page .messages [data-bind^='html']";
   }
+
+  fillField = async (field: Locator, setData: string): Promise<void> => {
+    await field.fill(setData);
+  };
+
+  typeField = async (field: Locator, setData: string): Promise<void> => {
+    await field.type(setData);
+  };
 
   async getPageTitle(page: Page): Promise<string> {
     await page.waitForLoadState("networkidle");

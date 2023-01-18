@@ -17,22 +17,14 @@ export class LoginPage extends BasePage {
     this.endpoint = "/customer/account/login";
   }
 
-  async fillEmailField(email: string): Promise<void> {
-    await this.emailField.type(email);
-  }
-
-  async fillPasswordField(password: string): Promise<void> {
-    await this.passwordField.type(password);
-  }
-
   async clickSignInButton(): Promise<void> {
     await this.signInButton.click();
   }
 
   async login(email: string, password: string): Promise<void> {
     await this.open(this.page);
-    await this.fillEmailField(email);
-    await this.fillPasswordField(password);
+    await this.typeField(this.emailField, email);
+    await this.typeField(this.passwordField, password);
     await this.clickSignInButton();
   }
 

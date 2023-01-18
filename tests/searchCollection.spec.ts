@@ -4,11 +4,11 @@ test.describe("Eco friendly collections", () => {
   test("User should search, add the most expensive product and verify result in cart", async ({
     apiAction,
     user,
+    page,
     loginPage,
     ecoFriendlyPage,
     cartPage,
     previewItemPage,
-    page,
   }) => {
     await apiAction.createTestUserViaAPI(user);
 

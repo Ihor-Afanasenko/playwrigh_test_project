@@ -17,20 +17,8 @@ export class GuestFormPage extends BasePage {
     this.endpoint = "/sales/guest/form";
   }
 
-  async fillOrderIdField(orderId: string): Promise<void> {
-    await this.orderIdField.fill(orderId);
-  }
-
-  async fillBillingLastNameField(bullingLastName: string): Promise<void> {
-    await this.billingLastNameField.type(bullingLastName);
-  }
-
   async selectFindOrderBy(findOrderBy: string): Promise<void> {
     await this.page.getByLabel("Find Order By").selectOption(findOrderBy);
-  }
-
-  async fillEmailField(email: string): Promise<void> {
-    await this.emailField.fill(email);
   }
 
   async fillOrderInformation(
@@ -39,10 +27,10 @@ export class GuestFormPage extends BasePage {
     findOrderBy: string,
     email: string
   ): Promise<void> {
-    await this.fillOrderIdField(orderId);
-    await this.fillBillingLastNameField(bullingLastName);
+    await this.fillField(this.orderIdField, orderId);
+    await this.typeField(this.billingLastNameField, bullingLastName);
     await this.selectFindOrderBy(findOrderBy);
-    await this.fillEmailField(email);
+    await this.fillField(this.emailField, email);
   }
 
   async confirmOrder() {

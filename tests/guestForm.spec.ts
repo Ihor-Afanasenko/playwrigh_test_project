@@ -2,9 +2,9 @@ import { expect, test } from "../base/pomFixture";
 
 test.describe("Guest page", () => {
   test("Guest should submit the form with a non-existing order id and the rest valid data verify the form is not submitted", async ({
-    geustFormPage,
     user,
     page,
+    geustFormPage,
   }) => {
     await geustFormPage.open(page);
 

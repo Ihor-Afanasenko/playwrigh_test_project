@@ -27,30 +27,6 @@ export class AdvancedSearchPage extends BasePage {
     this.endpoint = "/catalogsearch/advanced";
   }
 
-  async fillProductNameFiled(productName: string): Promise<void> {
-    await this.productNameField.fill(productName);
-  }
-
-  async filSkuFiled(sku: string): Promise<void> {
-    await this.skuFiled.fill(sku);
-  }
-
-  async filDescriptionFiled(description: string): Promise<void> {
-    await this.descriptionField.fill(description);
-  }
-
-  async fillShotDescriptionField(shortDescription: string): Promise<void> {
-    await this.shortDescriptionField.fill(shortDescription);
-  }
-
-  async fillPriceFromField(priceFrom: string): Promise<void> {
-    await this.priceFromField.fill(priceFrom);
-  }
-
-  async fillPriceToField(priceTo: string): Promise<void> {
-    await this.priceToField.fill(priceTo);
-  }
-
   async fillSearchForm(
     productName: string,
     sku: string,
@@ -59,12 +35,12 @@ export class AdvancedSearchPage extends BasePage {
     priceFrom: string,
     priceTo: string
   ): Promise<void> {
-    await this.fillProductNameFiled(productName);
-    await this.filSkuFiled(sku);
-    await this.filDescriptionFiled(description);
-    await this.fillShotDescriptionField(shortDescription);
-    await this.fillPriceFromField(priceFrom);
-    await this.fillPriceToField(priceTo);
+    await this.fillField(this.productNameField, productName);
+    await this.fillField(this.skuFiled, sku);
+    await this.fillField(this.descriptionField, description);
+    await this.fillField(this.shortDescriptionField, shortDescription);
+    await this.fillField(this.priceFromField, priceFrom);
+    await this.fillField(this.priceToField, priceTo);
   }
 
   async confirmSearch(): Promise<void> {

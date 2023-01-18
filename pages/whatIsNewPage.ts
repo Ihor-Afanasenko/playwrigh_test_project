@@ -10,7 +10,7 @@ export class WhatIsNewPage extends BasePage {
     super();
     this.page = page;
     this.addToWishListLink = page.locator(
-      ".product-item-info:hover a[title='Add to Wish List']"
+      ".product-item-info:hover a.towishlist"
     );
     this.endpoint = "/what-is-new.html";
   }

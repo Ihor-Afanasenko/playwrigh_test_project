@@ -2,8 +2,8 @@ import { expect, test } from "../base/pomFixture";
 
 test.describe("Sale page", () => {
   test("User should select item from the left menu, verify each items info, see 'Add to Cart'", async ({
-    salePage,
     page,
+    salePage,
   }) => {
     await salePage.open(page);
     await salePage.selectProductFromLeftMenu("Men", "Tees");

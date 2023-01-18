@@ -22,7 +22,7 @@ export class EcoFriendlyPage extends BasePage {
   }
 
   async searchProduct(productName: string): Promise<void> {
-    await this.searchField.fill(productName);
+    await this.fillField(this.searchField, productName);
     await this.page.keyboard.press("Enter");
     await this.searchResulttPageTitle.waitFor({ state: "visible" });
   }
