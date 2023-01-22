@@ -6,7 +6,7 @@ export class LoginPage extends BasePage {
   readonly emailField: Locator;
   readonly passwordField: Locator;
   readonly signInButton: Locator;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
@@ -14,7 +14,7 @@ export class LoginPage extends BasePage {
     this.emailField = page.locator("input#email");
     this.passwordField = page.locator("input#pass[name^='login']");
     this.signInButton = page.locator(".primary#send2");
-    this.endpoint = "/customer/account/login";
+    this.addPath = "/customer/account/login";
   }
 
   async clickSignInButton(): Promise<void> {
@@ -29,6 +29,6 @@ export class LoginPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

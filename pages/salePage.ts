@@ -9,7 +9,7 @@ export class SalePage extends BasePage {
   readonly toCartButton: string;
   readonly amountItems: Locator;
   readonly productInfo: Locator;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
@@ -20,7 +20,7 @@ export class SalePage extends BasePage {
     this.toCartButton = ".action.tocart";
     this.amountItems = page.locator("#toolbar-amount>.toolbar-number");
     this.productInfo = page.locator(".product>.product-item-info");
-    this.endpoint = "/sale.html";
+    this.addPath = "/sale.html";
   }
 
   async selectProductFromLeftMenu(
@@ -68,6 +68,6 @@ export class SalePage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

@@ -4,13 +4,13 @@ import { BasePage } from "./basePage";
 export class CartPage extends BasePage {
   private page: Page;
   readonly productProperty: Locator;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
     this.page = page;
     this.productProperty = page.locator(".product-item-details .item-options");
-    this.endpoint = "/checkout/cart";
+    this.addPath = "/checkout/cart";
   }
 
   async getProductProperty(): Promise<string> {
@@ -18,6 +18,6 @@ export class CartPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

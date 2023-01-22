@@ -12,7 +12,7 @@ export class AccountPage extends BasePage {
   readonly passwordMeter: Locator;
   readonly passwordConfirmation: Locator;
   readonly saveButton: Locator;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
@@ -26,7 +26,7 @@ export class AccountPage extends BasePage {
     this.passwordMeter = page.locator("#password-strength-meter");
     this.passwordConfirmation = page.locator("#password-confirmation");
     this.saveButton = page.locator(".save");
-    this.endpoint = "/customer/account/index";
+    this.addPath = "/customer/account/index";
   }
 
   async openCustomerDropdown(): Promise<void> {
@@ -68,6 +68,6 @@ export class AccountPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

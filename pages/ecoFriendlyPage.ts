@@ -7,7 +7,7 @@ export class EcoFriendlyPage extends BasePage {
   readonly searchResulttPageTitle: Locator;
   readonly productItem: Locator;
   readonly sortByMenu: Locator;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
@@ -18,7 +18,7 @@ export class EcoFriendlyPage extends BasePage {
     });
     this.productItem = page.locator(".product-item");
     this.sortByMenu = page.locator("#sorter");
-    this.endpoint = "/collections/eco-friendly.html";
+    this.addPath = "/collections/eco-friendly.html";
   }
 
   async searchProduct(productName: string): Promise<void> {
@@ -38,6 +38,6 @@ export class EcoFriendlyPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

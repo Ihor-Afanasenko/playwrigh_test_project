@@ -3,12 +3,12 @@ import { BasePage } from "./basePage";
 
 export class WishListPage extends BasePage {
   private page: Page;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
     this.page = page;
-    this.endpoint = "/wishlist";
+    this.addPath = "/wishlist";
   }
 
   async itemWithNameVisible(name: string): Promise<boolean> {
@@ -22,6 +22,6 @@ export class WishListPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

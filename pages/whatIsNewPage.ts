@@ -4,7 +4,7 @@ import { BasePage } from "./basePage";
 export class WhatIsNewPage extends BasePage {
   private page: Page;
   readonly addToWishListLink: Locator;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
@@ -12,7 +12,7 @@ export class WhatIsNewPage extends BasePage {
     this.addToWishListLink = page.locator(
       ".product-item-info:hover a.towishlist"
     );
-    this.endpoint = "/what-is-new.html";
+    this.addPath = "/what-is-new.html";
   }
 
   async addItemToWhishListByName(name: string): Promise<void> {
@@ -21,6 +21,6 @@ export class WhatIsNewPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

@@ -9,7 +9,7 @@ export class BagsPage extends BasePage {
   readonly productItem: Locator;
   readonly hoverProduct: string;
   readonly frameStyle: string;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
@@ -20,7 +20,7 @@ export class BagsPage extends BasePage {
     this.productItem = page.locator(".list .product-item");
     this.hoverProduct = ".product-item-info:hover";
     this.frameStyle = "1px solid rgb(187, 187, 187)";
-    this.endpoint = "/gear/bags.html";
+    this.addPath = "/gear/bags.html";
   }
 
   async seeFrameAfterHoverOverItem(): Promise<boolean> {
@@ -72,6 +72,6 @@ export class BagsPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

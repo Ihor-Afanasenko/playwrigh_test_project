@@ -11,7 +11,7 @@ export class AdvancedSearchPage extends BasePage {
   readonly priceToField: Locator;
   readonly searchFormButton: Locator;
   readonly messageError: Locator;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
@@ -24,7 +24,7 @@ export class AdvancedSearchPage extends BasePage {
     this.priceToField = page.locator("input#price_to");
     this.searchFormButton = page.locator(".primary>button.search");
     this.messageError = page.locator(".message.error");
-    this.endpoint = "/catalogsearch/advanced";
+    this.addPath = "/catalogsearch/advanced";
   }
 
   async fillSearchForm(
@@ -52,6 +52,6 @@ export class AdvancedSearchPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

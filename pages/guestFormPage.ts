@@ -6,7 +6,7 @@ export class GuestFormPage extends BasePage {
   readonly orderIdField: Locator;
   readonly billingLastNameField: Locator;
   readonly emailField: Locator;
-  readonly endpoint: string;
+  readonly addPath: string;
 
   constructor(page: Page) {
     super();
@@ -14,7 +14,7 @@ export class GuestFormPage extends BasePage {
     this.orderIdField = page.locator("input#oar-order-id");
     this.billingLastNameField = page.locator("input#oar-billing-lastname");
     this.emailField = page.locator("input#oar_email");
-    this.endpoint = "/sales/guest/form";
+    this.addPath = "/sales/guest/form";
   }
 
   async selectFindOrderBy(findOrderBy: string): Promise<void> {
@@ -38,6 +38,6 @@ export class GuestFormPage extends BasePage {
   }
 
   async open(page: Page): Promise<void> {
-    await super.open(page, this.endpoint);
+    await super.open(page, this.addPath);
   }
 }

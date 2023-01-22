@@ -18,3 +18,5 @@
 * Pull down the source code using your favorite [IDE]
 * Open a terminal, change to the root (playwright) directory, and run 'npm install' to install necessary node packages
 * Execute tests locally by running 'npm test'
+* Lint your code!
+  * `npm run format` and make sure there are no errors/warnings before creating a pull request.
