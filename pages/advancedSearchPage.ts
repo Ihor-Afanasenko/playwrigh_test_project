@@ -2,7 +2,6 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class AdvancedSearchPage extends BasePage {
-  private page: Page;
   readonly productNameField: Locator;
   readonly skuFiled: Locator;
   readonly descriptionField: Locator;
@@ -11,11 +10,10 @@ export class AdvancedSearchPage extends BasePage {
   readonly priceToField: Locator;
   readonly searchFormButton: Locator;
   readonly messageError: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/catalogsearch/advanced";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.productNameField = page.locator("input#name");
     this.skuFiled = page.locator("input#sku");
     this.descriptionField = page.locator("input#description");
@@ -24,7 +22,6 @@ export class AdvancedSearchPage extends BasePage {
     this.priceToField = page.locator("input#price_to");
     this.searchFormButton = page.locator(".primary>button.search");
     this.messageError = page.locator(".message.error");
-    this.addPath = "/catalogsearch/advanced";
   }
 
   async fillSearchForm(

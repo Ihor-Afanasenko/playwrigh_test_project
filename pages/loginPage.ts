@@ -2,19 +2,16 @@ import { Page, Locator } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class LoginPage extends BasePage {
-  private page: Page;
   readonly emailField: Locator;
   readonly passwordField: Locator;
   readonly signInButton: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/customer/account/login";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.emailField = page.locator("input#email");
     this.passwordField = page.locator("input#pass[name^='login']");
     this.signInButton = page.locator(".primary#send2");
-    this.addPath = "/customer/account/login";
   }
 
   async clickSignInButton(): Promise<void> {

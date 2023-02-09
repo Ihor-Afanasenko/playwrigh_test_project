@@ -2,14 +2,8 @@ import { Page, Locator } from "@playwright/test";
 import { SingletonPage } from "./singeltonPage";
 
 export class BasePage extends SingletonPage {
-  readonly pageTitle: string;
-  readonly message: string;
-
-  constructor() {
-    super();
-    this.pageTitle = ".base";
-    this.message = ".page .messages [data-bind^='html']";
-  }
+  readonly pageTitle: string = ".base";
+  readonly message: string = ".page .messages [data-bind^='html']";
 
   fillField = async (field: Locator, setData: string): Promise<void> => {
     await field.fill(setData);

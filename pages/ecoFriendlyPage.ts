@@ -2,23 +2,20 @@ import { Page, Locator } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class EcoFriendlyPage extends BasePage {
-  private page: Page;
   readonly searchField: Locator;
   readonly searchResulttPageTitle: Locator;
   readonly productItem: Locator;
   readonly sortByMenu: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/collections/eco-friendly.html";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.searchField = page.locator("#search");
     this.searchResulttPageTitle = page.locator(".base", {
       hasText: "Search results for: ",
     });
     this.productItem = page.locator(".product-item");
     this.sortByMenu = page.locator("#sorter");
-    this.addPath = "/collections/eco-friendly.html";
   }
 
   async searchProduct(productName: string): Promise<void> {

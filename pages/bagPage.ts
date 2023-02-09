@@ -2,25 +2,20 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class BagsPage extends BasePage {
-  private page: Page;
   readonly currentSorterState: Locator;
   readonly finalPriceItem: Locator;
   readonly itemtName: Locator;
   readonly productItem: Locator;
-  readonly hoverProduct: string;
-  readonly frameStyle: string;
-  readonly addPath: string;
+  readonly hoverProduct: string = ".product-item-info:hover";
+  readonly frameStyle: string = "1px solid rgb(187, 187, 187)";
+  readonly addPath: string = "/gear/bags.html";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.currentSorterState = page.locator("#sorter>[selected='selected']");
     this.finalPriceItem = page.locator("[data-price-type='finalPrice']");
     this.itemtName = page.locator(".name>.product-item-link");
     this.productItem = page.locator(".list .product-item");
-    this.hoverProduct = ".product-item-info:hover";
-    this.frameStyle = "1px solid rgb(187, 187, 187)";
-    this.addPath = "/gear/bags.html";
   }
 
   async seeFrameAfterHoverOverItem(): Promise<boolean> {

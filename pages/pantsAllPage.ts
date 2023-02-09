@@ -2,15 +2,12 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class PantsAllPage extends BasePage {
-  private page: Page;
   readonly productItem: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/promotions/pants-all.html";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.productItem = page.locator(".product-item-info");
-    this.addPath = "/promotions/pants-all.html";
   }
 
   async selectItemByName(itemName: string): Promise<void> {

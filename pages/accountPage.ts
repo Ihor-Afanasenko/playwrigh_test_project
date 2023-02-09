@@ -2,7 +2,6 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class AccountPage extends BasePage {
-  private page: Page;
   readonly dropdown: Locator;
   readonly switchButton: Locator;
   readonly openDropdown: Locator;
@@ -12,11 +11,10 @@ export class AccountPage extends BasePage {
   readonly passwordMeter: Locator;
   readonly passwordConfirmation: Locator;
   readonly saveButton: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/customer/account/index";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.dropdown = page.locator(".panel .logged-in");
     this.switchButton = page.locator(".panel .customer-welcome .switch");
     this.openDropdown = page.locator(".active ul.header.links");
@@ -26,7 +24,6 @@ export class AccountPage extends BasePage {
     this.passwordMeter = page.locator("#password-strength-meter");
     this.passwordConfirmation = page.locator("#password-confirmation");
     this.saveButton = page.locator(".save");
-    this.addPath = "/customer/account/index";
   }
 
   async openCustomerDropdown(): Promise<void> {

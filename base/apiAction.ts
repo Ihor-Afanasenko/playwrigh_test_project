@@ -2,14 +2,8 @@ import { request, expect } from "@playwright/test";
 import { User } from "./userData";
 
 export class APIAction {
-  readonly baseURL: string;
-  readonly pathToCreate: string;
-  readonly endpointToLogin: string;
-
-  constructor() {
-    this.baseURL = "https://magento.softwaretestingboard.com";
-    this.pathToCreate = "/customer/account/create";
-  }
+  readonly baseURL: string = "https://magento.softwaretestingboard.com";
+  readonly pathToCreate: string = "/customer/account/create";
 
   getFormKey(response: string): string {
     return response

@@ -2,7 +2,6 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class PreviewItemPage extends BasePage {
-  private page: Page;
   readonly previewPhoto: Locator;
   readonly addToCartButton: Locator;
   readonly moreInfoTab: Locator;
@@ -10,9 +9,8 @@ export class PreviewItemPage extends BasePage {
   readonly productAttribute: Locator;
   readonly yourRaitingFields: Locator;
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.previewPhoto = page.locator(".fotorama-item");
     this.addToCartButton = page.locator("#product-addtocart-button");
     this.moreInfoTab = page.locator("[id*='additional-title']");

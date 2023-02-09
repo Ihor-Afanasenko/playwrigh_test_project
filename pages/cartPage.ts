@@ -2,15 +2,12 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class CartPage extends BasePage {
-  private page: Page;
   readonly productProperty: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/checkout/cart";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.productProperty = page.locator(".product-item-details .item-options");
-    this.addPath = "/checkout/cart";
   }
 
   async getProductProperty(): Promise<string> {

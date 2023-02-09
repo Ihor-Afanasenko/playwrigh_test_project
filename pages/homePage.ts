@@ -2,7 +2,6 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class HomePage extends BasePage {
-  private page: Page;
   readonly promoBanner: Locator;
   readonly tShirtsBanner: Locator;
   readonly pantsBanner: Locator;
@@ -10,9 +9,8 @@ export class HomePage extends BasePage {
   readonly contentHeading: Locator;
   readonly productItem: Locator;
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.promoBanner = page.locator(".block-promo.home-main");
     this.tShirtsBanner = page.locator(".home-t-shirts");
     this.pantsBanner = page.locator(".home-pants");

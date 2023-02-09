@@ -2,19 +2,16 @@ import { Page, Locator } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class GuestFormPage extends BasePage {
-  private page: Page;
   readonly orderIdField: Locator;
   readonly billingLastNameField: Locator;
   readonly emailField: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/sales/guest/form";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.orderIdField = page.locator("input#oar-order-id");
     this.billingLastNameField = page.locator("input#oar-billing-lastname");
     this.emailField = page.locator("input#oar_email");
-    this.addPath = "/sales/guest/form";
   }
 
   async selectFindOrderBy(findOrderBy: string): Promise<void> {

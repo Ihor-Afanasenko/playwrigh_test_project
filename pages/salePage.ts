@@ -2,25 +2,18 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class SalePage extends BasePage {
-  private page: Page;
-  readonly itemImage: string;
-  readonly itemPrice: string;
-  readonly itemReviews: string;
-  readonly toCartButton: string;
+  readonly itemImage: string = ".product-image-photo";
+  readonly itemPrice: string = "[id^='product-price']";
+  readonly itemReviews: string = ".rating-result";
+  readonly toCartButton: string = ".action.tocart";
   readonly amountItems: Locator;
   readonly productInfo: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/sale.html";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
-    this.itemImage = ".product-image-photo";
-    this.itemPrice = "[id^='product-price']";
-    this.itemReviews = ".rating-result";
-    this.toCartButton = ".action.tocart";
     this.amountItems = page.locator("#toolbar-amount>.toolbar-number");
     this.productInfo = page.locator(".product>.product-item-info");
-    this.addPath = "/sale.html";
   }
 
   async selectProductFromLeftMenu(

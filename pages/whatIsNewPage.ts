@@ -2,17 +2,14 @@ import { Locator, Page } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class WhatIsNewPage extends BasePage {
-  private page: Page;
   readonly addToWishListLink: Locator;
-  readonly addPath: string;
+  readonly addPath: string = "/what-is-new.html";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
     this.addToWishListLink = page.locator(
       ".product-item-info:hover a.towishlist"
     );
-    this.addPath = "/what-is-new.html";
   }
 
   async addItemToWhishListByName(name: string): Promise<void> {

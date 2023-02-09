@@ -1,24 +1,23 @@
-import { Page } from "@playwright/test";
+import { Page, Locator } from "@playwright/test";
 import { BasePage } from "./basePage";
 
 export class WishListPage extends BasePage {
-  private page: Page;
-  readonly addPath: string;
+  readonly addPath: string = "/wishlist";
 
-  constructor(page: Page) {
+  constructor(private page: Page) {
     super();
-    this.page = page;
-    this.addPath = "/wishlist";
+  }
+
+  getProductLocatorByName(name: string): Locator {
+    return this.page.locator(`.product-item-name a[title='${name}']`);
   }
 
   async itemWithNameVisible(name: string): Promise<boolean> {
-    return await this.page
-      .locator(`.product-item-name a[title='${name}']`)
-      .isVisible();
+    return await this.getProductLocatorByName(name).isVisible();
   }
 
   async openItemInPreview(name: string): Promise<void> {
-    await this.page.locator(`.product-item-name a[title='${name}']`).click();
+    await this.getProductLocatorByName(name).click();
   }
 
   async open(page: Page): Promise<void> {
