@@ -1,5 +1,7 @@
 # Readme #
 
+[![Build Status](https://github.com/Ihor-Afanasenko/playwrigh_test_project/actions/workflows/playwright.yml/badge.svg?branch-maser)](https://github.com/Ihor-Afanasenko/playwrigh_test_project/actions/workflows/playwright.yml)
+
 ## Test automation project using the [@playwright/test](https://playwright.dev/) framework ##
 
 ### What is this repository for? ###
