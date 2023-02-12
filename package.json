@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "npx playwright test --headed",
+    "test": "npx playwright test",
     "allure:generate": "npx allure generate ./allure-results --clean",
     "allure:open": "npx allure open ./allure-report",
     "format": "prettier-eslint --write \"tests/*.ts\" \"pages/*.ts\" \"base/*.ts\"",
